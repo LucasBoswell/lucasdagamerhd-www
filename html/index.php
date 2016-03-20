@@ -22,9 +22,7 @@
   <div class="video-js-box">
     <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
     <video id="example_video_1" class="video-js" width="640" height="264" controls="controls" preload="auto" poster="http://video-js.zencoder.com/oceans-clip.png">
-      <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-      <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm; codecs="vp8, vorbis"' />
-      <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg; codecs="theora, vorbis"' />
+      <source src="rtmp://lucasdagamerhd.tv/live/test" type="rtmp/mp4">
       <!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
       <object id="flash_fallback_1" class="vjs-flash-fallback" width="640" height="264" type="application/x-shockwave-flash"
         data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
