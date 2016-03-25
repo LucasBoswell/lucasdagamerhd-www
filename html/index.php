@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-	<title>CSS Free Templates with jQuery Slider</title>
+	<title>LucasDaGamerHD.tv -CSGO, DayZ, And More</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="css/images/favicon.ico" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -15,6 +15,9 @@
 	<script src="js/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="js/DD_belatedPNG-min.js" type="text/javascript"></script>
 	<script src="js/functions.js" type="text/javascript" charset="utf-8"></script>
+	<link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
 </head>
 <body>
 	<!-- Wrapper -->
@@ -86,6 +89,15 @@
 				</ul>				
 			</div>
 			<!-- END Slider -->
+			<!-- Video -->
+			<video id="my_video" class="video-js" controls preload="auto" width="720" height="480" data-setup='{"loop": "true", "autoplay": true, "preload": "true"}'>
+				<source src="rtmp://lucasdagamerhd.tv/live/test" type='rtmp/mp4'>
+				<p class="vjs-no-js">
+				  To view this video please enable JavaScript, and consider upgrading to a web browser that
+				  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+				</p>
+			</video>
+			<!-- End Video -->
 			<!-- Main -->
 			<div id="main">
 				<div id="main-top"></div>
