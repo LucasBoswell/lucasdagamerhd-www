@@ -24,29 +24,14 @@
 	<div id="wrapper">
 		<!-- Shell -->
 		<div class="shell">
-			<div class="socials">
-				<a title="Facebook" class="facebook" href="#">facebook</a>
-				<a title="Twitter" class="twitter" href="#">twitter</a>
-				<a title="RSS" class="rss" href="#">rss</a>				
-			</div>
-			<p id="top-navigation"><a title="Sitemap" href="#">sitemap</a><span>|</span><a title="Search" href="#">search</a><span>|</span><a title="User area" href="#">user area</a></p>
-			<div class="cl"></div>
 			<!-- Header -->
 			<div id="header">
 				<!-- Logo -->
 				<div id="logo">
-					<h1><a href="#" title="home">CSS Free Tempalte</a></h1>
-					<p class="slogan">FREE CSS TEMPLATES</p>
+					<h1><a href="#" title="home">LucasDaGamerHD.tv</a></h1>
+					<p class="slogan">CSGO, DayZ, And More</p>
 				</div>
 				<!-- END Logo -->
-				<!-- Search -->
-				<div id="search">
-					<form action="" method="post">
-						<input type="text" class="field" value="Search here ..." title="Search here ..." />
-						<input type="submit" value="" class="submit-button" />
-					</form>
-				</div>
-				<!-- END Search -->
 				<div class="cl"></div>
 			</div>
 			<!-- END Header -->
@@ -56,11 +41,7 @@
 					<li class="first"><a title="Home" href="#">Home</a></li>
 					<li><a title="About" href="#">About </a></li>
 					<li><a title="Services" href="#">Services</a></li>
-					<li><a title="Projects" href="#">PROJECTS</a></li>
-					<li><a title="Solutions" href="#">SOLUTIONS</a></li>
-					<li><a title="Jobs" href="#">JOBS</a></li>
-					<li><a title="Blog" href="#">BLOG</a></li>
-					<li><a title="Contacts" href="#">Contacts</a></li>
+					<li><a title="Projects" href="#">Projects</a></li>
 				</ul>
 				<div class="cl"></div>
 			</div>
@@ -86,12 +67,12 @@
 							<p>Name of a game<span>additional info</span><a class="watch-now" title="Watch Now!" href="#">Watch Now!</a></p>							
 						</div>
 					</li>
-				</ul>				
+				</ul>
 			</div>
 			<!-- END Slider -->
 			<!-- Video -->
-			<div id = "stream" style="text-style: center">
-				<video id="my_video" class="video-js" controls preload="auto" width="720" height="480" data-setup='{"loop": "true", "autoplay": true, "preload": "true"}'>
+			<div id = "stream" style="display: table; margin: 0 auto;">
+				<video id="my_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="720" height="480" data-setup='{"loop": "true", "autoplay": true, "preload": "true"}'>
 					<source src="rtmp://lucasdagamerhd.tv/live/test" type='rtmp/mp4'>
 					<p class="vjs-no-js">
 					  To view this video please enable JavaScript, and consider upgrading to a web browser that
