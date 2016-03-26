@@ -1,23 +1,26 @@
-<?php
- function login(){
- session_start();
- $this->lib_include();
- $api = new Google_Client();
- $api->setApplicationName("LucasDaGamerHD");
- $api->setClientId('875623869607-hqd9eok3r385lrgvbvhoql1n416e9odn.apps.googleusercontent.com');
- $api->setClientSecret('w2lI2dmsHVJ7NmfgE0q5BkDe');
- $api->setAccessType('online');
- $api->setScopes(array('https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'));
- $api->setRedirectUri('http://www.lucasdagamerhd.tv/login.php');
- $service = new Google_PlusService($api);
- $oauth2 = new Google_Oauth2Service($api);
- $api->authenticate();
- $_SESSION['token'] = $api->getAccessToken();
- if (isset($_SESSION['token'])) {
- $set_asess_token = $api->setAccessToken($_SESSION['token']);
- }
- if ($api->getAccessToken()) {
- $data = $service->people->get('me');
- $user_data = $oauth2->userinfo->get(); 
- echo $user_data;
- ?>
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="875623869607-hqd9eok3r385lrgvbvhoql1n416e9odn.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
+  </body>
+</html>
