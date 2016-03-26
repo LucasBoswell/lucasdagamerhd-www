@@ -63,11 +63,14 @@
 	<div id="wrapper">
 		<!-- Shell -->
 		<div class="shell">
+			<!-- Top Nav -->
+			<p id="top-navigation">
+			<div class="g-signin2" data-width="300" data-height="50" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
+			<a href="" onclick="signOut();">Sign out</a>
+			</p>
+			<!-- END Top Nav -->
 			<!-- Header -->
 			<div id="header">
-				<div id="signedInAsName">Not signed in</div>
-			    <div class="g-signin2" data-width="300" data-height="200" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
-				<a href="" onclick="signOut();">Sign out</a>
 				<div class="cl"></div>
 			</div>
 			<!-- END Header -->
