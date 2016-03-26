@@ -47,7 +47,7 @@ html[xmlns] .slides {display: block;}
 .flex-direction-nav li .disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
 
 /* Control Nav */
-.flex-control-nav { width: 981px; position: absolute; top: 446px; text-align: center;}
+.flex-control-nav { width: 781px; position: absolute; top: 446px; text-align: center;}
 .flex-control-nav li { list-style: none; display: inline-block; zoom: 1; *display: inline; padding-left: 5px; }
 .flex-control-nav li:first-child { margin: 0; }
 .flex-control-nav li a { display: inline; float: left; width: 21px; height: 21px; text-indent: -4000px; background: url(images/slider-nav.png) no-repeat 0 0; }

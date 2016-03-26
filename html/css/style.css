@@ -48,16 +48,16 @@ textarea { overflow: auto; }
 #search .field { font-size: 11px; color: #858585; line-height: 16px; }
 #search .submit-button { display: inline; float: right; background: none; border: 0; cursor: pointer; width: 43px; height: 33px; }
 
-#navigation { margin: 0 auto; padding: 2px 0 0 3px; width: 583px; height: 73px; background: url(images/navigation.png) no-repeat 0 0; }
+#navigation { margin: 0 auto; padding: 2px 0 0 3px; width: 700px; height: 73px; background: url(images/navigation.png) no-repeat 0 0; }
 #navigation ul li { list-style: none; display: inline; float: left;	line-height: 60px; text-shadow: 1px 1px #1b3242; background: url(images/nav-sep.png) no-repeat right 0; }
 #navigation ul li { font-family: 'Play', sans-serif; font-size: 14px; text-transform: uppercase; font-weight: bold; }
 #navigation ul li.first a { padding: 0 23px 0 26px; background: url(images/nav-first.png) no-repeat 0 -4000px; }
 #navigation ul li a { display: inline; float: left; padding: 0 22px 0 19px; color: #fff; background: url(images/nav-item.png) repeat-x 0 -4000px; }
 #navigation ul li a:hover { background-position: 0 0; text-decoration: none; }
 
-#slider { position: relative; padding: 6px 0 50px 7px; margin-left: 2px; width: 984px; background: url(images/slider.png) no-repeat 0 0; }
+#slider { position: relative; padding: 6px 0 50px 7px; margin-left: 2px; width: 800px; background: url(images/slider.png) no-repeat 0 0; }
 
-#slider .caption { position: absolute; top: 357px; left: 0; padding-top: 16px; width: 981px; height: 47px; background: url(images/caption.png) repeat-x 0 0; }
+#slider .caption { position: absolute; top: 200px; left: 0; padding-top: 16px; width: 800px; height: 47px; background: url(images/caption.png) repeat-x 0 0; }
 #slider .caption p { text-align: center; font-family: 'Play', sans-serif; font-size: 20px; color: #fff; font-weight: bold; line-height: 32px; }
 #slider .caption p span { padding: 0 22px 0 20px; font-family: arial, sans-serif; font-size: 10px; color: #8a8b89; text-transform: uppercase; font-weight: normal; line-height: 32px; }
 #slider .caption a.watch-now { display: inline-block; width: 116px; height: 32px; line-height: 32px; background: url(images/watch-now.png) no-repeat 0 0; }
@@ -66,7 +66,7 @@ textarea { overflow: auto; }
 
 #main { padding-left: 4px; }
 #main-top { font-size: 0; line-height: 0; text-indent: -4000px; height: 10px; background: url(images/main-top.png) no-repeat 0 0; }
-#main-middle { padding: 10px 27px 0; width: 937px; background: url(images/main-middle.png) repeat-y 0 0; }
+#main-middle { padding: 10px 27px 0; width: 800px; background: url(images/main-middle.png) repeat-y 0 0; }
 #main-bottom { font-size: 0; line-height: 0; text-indent: -4000px; height: 11px; background: url(images/main-bottom.png) no-repeat 0 0; }
 
 h2 { margin-bottom: 7px; font-family: 'Play', sans-serif; font-size: 26px; line-height: 47px; color: #fff; font-weight: normal; border-bottom: solid 1px #373737; }
@@ -104,7 +104,7 @@ h2 { margin-bottom: 7px; font-family: 'Play', sans-serif; font-size: 26px; line-
 .contact h2 { margin-bottom: 16px; }
 
 #footer { padding-top: 11px; }
-#footer .copy { float: right; padding-right: 2px; color: #8e8e8e; line-height: 19px; }
+#footer .copy { text-align: center; color: #8e8e8e; line-height: 19px; }
 #footer .copy span { color: #000; padding: 0 4px; }
 #footer .copy a { color: #c2c3c3; text-decoration: underline; }
 #footer .copy a:hover { text-decoration: none; }
