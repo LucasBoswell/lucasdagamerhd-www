@@ -42,14 +42,14 @@
 	var id_token = googleUser.getAuthResponse().id_token;
 	console.log("ID Token: " + id_token);
 	
-	document.getElementById('top-navigation').innerText = "Signed in as: " + profile.getName();
+	//document.getElementById('top-navigation').innerText = "Signed in as: " + profile.getName();
   };
   function signOut() {
 	var auth2 = gapi.auth2.getAuthInstance();
 	auth2.signOut().then(function () {
 	  console.log('User signed out.');
 	});
-	document.getElementById('top-navigation').innerText = "";
+	//document.getElementById('top-navigation').innerText = "";
   }
 </script>
 
@@ -60,7 +60,7 @@
 		<div class="shell">
 			<!-- Top Nav -->
 			<p id="top-navigation">
-			<div class="g-signin2" data-width="150" data-height="24" data-onsuccess="onSignIn" data-theme="dark"></div><span><a href="" onclick="signOut();">Sign out</a></span>
+			<div class="g-signin2" data-width="100" data-height="24" data-onsuccess="onSignIn" data-theme="dark"><a href="" onclick="signOut();">Sign out</a></div>
 			</p>
 			<div class="cl"></div>
 			<!-- END Top Nav -->
