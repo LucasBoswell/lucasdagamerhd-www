@@ -60,9 +60,9 @@
 		<div class="shell">
 			<!-- Top Nav -->
 			<p id="top-navigation">
-			<div class="g-signin2" data-width="200" data-height="30" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
-			<a href="" onclick="signOut();">Sign out</a>
+			<div class="g-signin2" data-width="150" data-height="24" data-onsuccess="onSignIn" data-theme="dark"></div><span><a href="" onclick="signOut();">Sign out</a></span>
 			</p>
+			<div class="cl"></div>
 			<!-- END Top Nav -->
 			<!-- Header -->
 			<div id="header">
