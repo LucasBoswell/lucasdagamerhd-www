@@ -62,8 +62,8 @@
 			<p id="top-navigation">
 			<div style="width: 100%; display: table;">
 				<div style="display: table-row">
-					<div style="width: 150px; display: table-cell;"><div class="g-signin2" data-width="100" data-height="24" data-onsuccess="onSignIn" data-theme="dark"></div></div>
-					<div style="display: table-cell;"><div style="margin-left: 150px;"><a href="" onclick="signOut();">Sign out</a></div></div>
+					<div style="width: 150px; display: table-cell; float: right; margin-right: 100px;"><div class="g-signin2" data-width="100" data-height="24" data-onsuccess="onSignIn" data-theme="dark"></div></div>
+					<div style="display: table-cell;"><div style="float: right;"><a href="" onclick="signOut();">Sign out</a></div></div>
 				</div>
 			</div>
 			</p>
