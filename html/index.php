@@ -2,6 +2,8 @@
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
 	<title>LucasDaGamerHD.tv -CSGO, DayZ, And More</title>
+	
+	<!-- THEME HEAD -->
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="css/images/favicon.ico" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -10,15 +12,49 @@
 		<link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" />		
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Play:400,700&amp;subset=latin,cyrillic-ext,greek,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css' />
+	
+	<!-- JS HEAD -->
 	<script src="js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/jquery.jcarousel.js" type="text/javascript"></script>
 	<script src="js/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="js/DD_belatedPNG-min.js" type="text/javascript"></script>
 	<script src="js/functions.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!-- VIDEO.JS HEAD -->
 	<link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+	
+	<!-- GOOGLE SIGN-IN HEAD -->
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="875623869607-hqd9eok3r385lrgvbvhoql1n416e9odn.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
+
+<!-- GOOGLE SIGN-IN SESSION SCRIPT -->
+<script>
+  function onSignIn(googleUser) {
+	// Useful data for your client-side scripts:
+	var profile = googleUser.getBasicProfile();
+	console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+	console.log('Full Name: ' + profile.getName());
+	console.log('Given Name: ' + profile.getGivenName());
+	console.log('Family Name: ' + profile.getFamilyName());
+	console.log("Image URL: " + profile.getImageUrl());
+	console.log("Email: " + profile.getEmail());
+
+	// The ID token you need to pass to your backend:
+	var id_token = googleUser.getAuthResponse().id_token;
+	console.log("ID Token: " + id_token);
+  };
+  function signOut() {
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function () {
+	  console.log('User signed out.');
+	});
+  }
+</script>
+
 <body>
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -26,6 +62,8 @@
 		<div class="shell">
 			<!-- Header -->
 			<div id="header">
+			    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+				<a href="" onclick="signOut();">Sign out</a>
 				<div class="cl"></div>
 			</div>
 			<!-- END Header -->
