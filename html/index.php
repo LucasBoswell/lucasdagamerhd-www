@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
+    <!-- WEB HEAD -->
 	<title>LucasDaGamerHD.tv -CSGO, DayZ, And More</title>
 	
 	<!-- THEME HEAD -->
@@ -36,25 +37,19 @@
   function onSignIn(googleUser) {
 	// Useful data for your client-side scripts:
 	var profile = googleUser.getBasicProfile();
-	console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-	console.log('Full Name: ' + profile.getName());
-	console.log('Given Name: ' + profile.getGivenName());
-	console.log('Family Name: ' + profile.getFamilyName());
-	console.log("Image URL: " + profile.getImageUrl());
-	console.log("Email: " + profile.getEmail());
 
 	// The ID token you need to pass to your backend:
 	var id_token = googleUser.getAuthResponse().id_token;
 	console.log("ID Token: " + id_token);
 	
-	document.getElementById('signedInAsName').innerText = "Signed in: " + profile.getName();
+	document.getElementById('top-navigation').innerText = "Signed in as: " + profile.getName();
   };
   function signOut() {
 	var auth2 = gapi.auth2.getAuthInstance();
 	auth2.signOut().then(function () {
 	  console.log('User signed out.');
 	});
-	document.getElementById('signedInAsName').innerText = "Not signed in";
+	document.getElementById('top-navigation').innerText = "";
   }
 </script>
 
@@ -65,7 +60,7 @@
 		<div class="shell">
 			<!-- Top Nav -->
 			<p id="top-navigation">
-			<div class="g-signin2" data-width="300" data-height="50" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
+			<div class="g-signin2" data-width="200" data-height="30" data-longtitle="true" data-onsuccess="onSignIn" data-theme="dark"></div>
 			<a href="" onclick="signOut();">Sign out</a>
 			</p>
 			<!-- END Top Nav -->
