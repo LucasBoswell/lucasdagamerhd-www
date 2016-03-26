@@ -53,6 +53,7 @@
   }
 </script>
 
+<!-- BEGIN HTML BODY -->
 <body>
 	<!-- Wrapper -->
 	<div id="wrapper">
