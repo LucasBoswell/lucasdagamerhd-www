@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 if(isset($_GET["key"])) {
 	if($_GET["key"] == "123") {
 		echo shell_exec("sh refresh.sh");
-		echo "Refreshed. Yay!";
+		echo "<br><br><b>Refreshed. Yay!</b>";
 	}
 } else echo "Invalid password.";
 ?>
