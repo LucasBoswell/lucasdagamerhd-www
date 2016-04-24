@@ -1,130 +1,111 @@
+<?
+session_start();
+
+if(isset($_GET['logout'])){	
+	
+	//Simple exit message
+	$fp = fopen("log.html", 'a');
+	fwrite($fp, "<div class='msgln'><i>User ". $_SESSION['name'] ." has left the chat session.</i><br></div>");
+	fclose($fp);
+	
+	session_destroy();
+	header("Location: index.php"); //Redirect the user
+}
+
+function loginForm(){
+	echo'
+	<div id="loginform">
+	<form action="index.php" method="post">
+		<p>Please enter your name to continue:</p>
+		<label for="name">Name:</label>
+		<input type="text" name="name" id="name" />
+		<input type="submit" name="enter" id="enter" value="Enter" />
+	</form>
+	</div>
+	';
+}
+
+if(isset($_POST['enter'])){
+	if($_POST['name'] != ""){
+		$_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
+	}
+	else{
+		echo '<span class="error">Please type in a name</span>';
+	}
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <!-- WEB HEAD -->
-	<title>LucasDaGamerHD.tv -CSGO, DayZ, And More</title>
-	
-	<!-- THEME HEAD -->
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="css/images/favicon.ico" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
-	<!--[if IE 6]>
-		<link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" />		
-	<![endif]-->
-	<link href='http://fonts.googleapis.com/css?family=Play:400,700&amp;subset=latin,cyrillic-ext,greek,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css' />
-	
-	<!-- JS HEAD -->
-	<script src="js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/jquery.jcarousel.js" type="text/javascript"></script>
-	<script src="js/jquery.flexslider.js" type="text/javascript"></script>
-	<script src="js/DD_belatedPNG-min.js" type="text/javascript"></script>
-	<script src="js/functions.js" type="text/javascript" charset="utf-8"></script>
-	
-	<!-- VIDEO.JS HEAD -->
-	<link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-    <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
-	
-	<!-- GOOGLE SIGN-IN HEAD -->
-	<meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="875623869607-hqd9eok3r385lrgvbvhoql1n416e9odn.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+<title>Chat - Customer Module</title>
+<link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 
-<!-- GOOGLE SIGN-IN SESSION SCRIPT -->
-<script>
-  function onSignIn(googleUser) {
-	// Useful data for your client-side scripts:
-	var profile = googleUser.getBasicProfile();
-
-	// The ID token you need to pass to your backend:
-	var id_token = googleUser.getAuthResponse().id_token;
-	console.log("ID Token: " + id_token);
+<?php
+if(!isset($_SESSION['name'])){
+	loginForm();
+}
+else{
+?>
+<div id="wrapper">
+	<div id="menu">
+		<p class="welcome">Welcome, <b><?php echo $_SESSION['name']; ?></b></p>
+		<p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+		<div style="clear:both"></div>
+	</div>	
+	<div id="chatbox"><?php
+	if(file_exists("log.html") && filesize("log.html") > 0){
+		$handle = fopen("log.html", "r");
+		$contents = fread($handle, filesize("log.html"));
+		fclose($handle);
+		
+		echo $contents;
+	}
+	?></div>
 	
-	//document.getElementById('top-navigation').innerText = "Signed in as: " + profile.getName();
-  };
-  function signOut() {
-	var auth2 = gapi.auth2.getAuthInstance();
-	auth2.signOut().then(function () {
-	  console.log('User signed out.');
+	<form name="message" action="">
+		<input name="usermsg" type="text" id="usermsg" size="63" />
+		<input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+	</form>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+<script type="text/javascript">
+// jQuery Document
+$(document).ready(function(){
+	//If user submits the form
+	$("#submitmsg").click(function(){	
+		var clientmsg = $("#usermsg").val();
+		$.post("post.php", {text: clientmsg});				
+		$("#usermsg").attr("value", "");
+		return false;
 	});
-	//document.getElementById('top-navigation').innerText = "";
-  }
+	
+	//Load the file containing the chat log
+	function loadLog(){		
+		var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
+		$.ajax({
+			url: "log.html",
+			cache: false,
+			success: function(html){		
+				$("#chatbox").html(html); //Insert chat log into the #chatbox div				
+				var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
+				if(newscrollHeight > oldscrollHeight){
+					$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+				}				
+		  	},
+		});
+	}
+	setInterval (loadLog, 2500);	//Reload file every 2.5 seconds
+	
+	//If user wants to end session
+	$("#exit").click(function(){
+		var exit = confirm("Are you sure you want to end the session?");
+		if(exit==true){window.location = 'index.php?logout=true';}		
+	});
+});
 </script>
-
-<!-- BEGIN HTML BODY -->
-<body>
-	<!-- Wrapper -->
-	<div id="wrapper">
-		<!-- Shell -->
-		<div class="shell">
-			<!-- Top Nav -->
-			<p id="top-navigation">
-			<div style="width: 100%; display: table;">
-				<div style="display: table-row">
-					<div style="display: table-cell; float: right; margin-right: 70px;"><div class="g-signin2" data-width="100" data-height="24" data-onsuccess="onSignIn" data-theme="dark"></div></div>
-					<div style="display: table-cell;"><div style="float: right; margin-right: 20px;"><a href="" onclick="signOut();">Sign out</a></div></div>
-				</div>
-			</div>
-			</p>
-			<div class="cl"></div>
-			<!-- END Top Nav -->
-			<!-- Header -->
-			<div id="header">
-				<div class="cl"></div>
-			</div>
-			<!-- END Header -->
-			<!-- Navigation -->
-			<div id="navigation">
-				<ul>
-					<li class="first"><a title="Home" href="#">Home</a></li>
-					<li><a title="About" href="#">About </a></li>
-					<li><a title="Services" href="#">Services</a></li>
-					<li><a title="Projects" href="#">Projects</a></li>
-				</ul>
-				<div class="cl"></div>
-			</div>
-			<!-- END Navigation -->
-			<!-- Slider -->
-			<div style="display: table; margin: 0 auto;">
-				<div id="slider" class="flexslider">
-					<ul class="slides">
-						<li>
-							<img src="css/images/slide1.jpg"/>
-						</li>
-						<li>
-							<img src="css/images/test.gif"/>
-						</li>
-						<li>
-							<img src="css/images/slide2.jpg"/>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- END Slider -->
-			<!-- Video -->
-			<p style="text-align: center; font-weight: bold; color: red; font-size: 52px;"></br>OFFLINE</br></br></p>
-			<div id = "stream" style="display: table; margin: 0 auto;">
-				<video id="my_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="800" height="450" data-setup='{"loop": "true", "autoplay": true, "preload": "true"}'>
-					<source src="rtmp://lucasdagamerhd.tv/live/test" type='rtmp/mp4'>
-					<p class="vjs-no-js">
-					  To view this video please enable JavaScript, and consider upgrading to a web browser that
-					  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-					</p>
-				</video>
-			</div>
-			<!-- End Video -->
-			<div class="cl"></div></br>
-			<!-- Footer -->
-			<div id="footer">
-				<p class="copy">Copyright 2016<span>|</span>LucasDaGamerHD.tv - All Rights Reserved.     </p>
-				<div class="cl"></div>
-			</div>
-			<!-- END Footer -->
-		</div>
-		<!-- END Shell -->
-	</div>
-	<!-- END Wrapper -->
+<?php
+}
+?>
 </body>
 </html>
