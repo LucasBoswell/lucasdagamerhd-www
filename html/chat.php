@@ -78,7 +78,6 @@ a {
 
 	// The ID token you need to pass to your backend:
 	var id_token = googleUser.getAuthResponse().id_token;
-	console.log("ID Token: " + id_token);
 	
 	document.getElementById('welcome').innerText = "Welcome, " + profile.getName();
   };
@@ -96,6 +95,7 @@ a {
 		$("#usermsg").attr("value", "");
 		return false;
 	});
+	
 </script>
 
 <body>
@@ -106,13 +106,12 @@ a {
 <div id="wrapper">
     <div id="menu">
         <p class="welcome"></p>
-        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
         <div style="clear:both"></div>
     </div>
      
     <div id="chatbox"></div>
      
-    <form name="message" action="">
+    <form name="message" action="post.php">
         <input name="usermsg" type="text" id="usermsg" size="63" />
         <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
     </form>
