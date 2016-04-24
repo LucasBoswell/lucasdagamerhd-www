@@ -77,7 +77,6 @@ $(document).ready(function(){
 		var clientmsg = $("#usermsg").val();
 		$.post("post.php", {text: clientmsg});				
 		$("#usermsg").attr("value", "");
-		alert(clientmsg);
 		return false;
 	});
 	
@@ -96,7 +95,7 @@ $(document).ready(function(){
 		  	},
 		});
 	}
-	setInterval (loadLog, 2500);	//Reload file every 2.5 seconds
+	setInterval (loadLog, 500);	//Reload file every 2.5 seconds
 	
 	//If user wants to end session
 	$("#exit").click(function(){
