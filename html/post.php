@@ -1,6 +1,6 @@
 <?php
 	$fp = fopen("log.html", 'a');
-    fwrite($fp, "</br>" . $_POST["usermsg"]);
+    fwrite($fp, "</br>" . $_GET["usermsg"]);
     fclose($fp);
-	echo $_POST["usermsg"];
+	echo $_GET["usermsg"];
 ?>

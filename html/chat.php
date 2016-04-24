@@ -111,7 +111,7 @@ a {
      
     <div id="chatbox"></div>
      
-    <form name="message" action="post.php">
+    <form name="message" action="post.php" method="get">
         <input name="usermsg" type="text" id="usermsg" size="63" />
         <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
     </form>
