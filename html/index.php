@@ -77,7 +77,7 @@ $(document).ready(function(){
 		var clientmsg = $("#usermsg").val();
 		$.post("post.php", {text: clientmsg});				
 		$("#usermsg").attr("value", "");
-		alert("test");
+		alert(clientmsg);
 		return false;
 	});
 	
