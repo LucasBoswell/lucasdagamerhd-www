@@ -1,6 +1,5 @@
 <?php
-	$fp = fopen("log.html", 'a');
-    fwrite($fp, "</br>" . $_GET["usermsg"]);
+	$fp = fopen("chat.html", 'a');
+    fwrite($fp, $_GET["usermsg"] . "<br>");
     fclose($fp);
-	echo $_GET["usermsg"];
 ?>
