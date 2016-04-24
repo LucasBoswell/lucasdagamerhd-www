@@ -93,9 +93,9 @@ a {
 		var clientmsg = $("#usermsg").val();
 		$.post("post.php", {text: clientmsg});				
 		$("#usermsg").attr("value", "");
+		alert("TEST");
 		return false;
-	});
-	
+	});	
 </script>
 
 <body>
@@ -111,7 +111,7 @@ a {
      
     <div id="chatbox"></div>
      
-    <form name="message" action="post.php" method="get">
+    <form name="message" action="">
         <input name="usermsg" type="text" id="usermsg" size="63" />
         <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
     </form>
