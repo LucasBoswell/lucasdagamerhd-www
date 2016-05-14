@@ -23,7 +23,7 @@ textarea { overflow: auto; }
 
 #wrapper { background: url(images/wrapper.png) repeat-x 0 0; }
 
-.shell { padding: 9px 0 30px; width: 855px; margin: 0 auto; background: url(images/top-lights.png) no-repeat 0 0; }
+.shell { padding: 9px 0 30px; width: 755px; margin: 0 auto; background: url(images/top-lights.png) no-repeat 0 0; }
 
 .socials { display: inline; float: right; padding-right: 4px; }
 .socials a { display: block; float: left; padding-right: 9px; width: 22px; height: 22px; text-indent: -4000px; }
@@ -66,7 +66,7 @@ textarea { overflow: auto; }
 
 #main { padding-left: 4px; }
 #main-top { font-size: 0; line-height: 0; text-indent: -4000px; height: 10px; background: url(images/main-top.png) no-repeat 0 0; }
-#main-middle { padding: 10px 27px 0; width: 800px; background: url(images/main-middle.png) repeat-y 0 0; }
+#main-middle { padding: 10px 27px 0; width: 700px; background: url(images/main-middle.png) repeat-y 0 0; }
 #main-bottom { font-size: 0; line-height: 0; text-indent: -4000px; height: 11px; background: url(images/main-bottom.png) no-repeat 0 0; }
 
 h2 { margin-bottom: 7px; font-family: 'Play', sans-serif; font-size: 26px; line-height: 47px; color: #fff; font-weight: normal; border-bottom: solid 1px #373737; }
