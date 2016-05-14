@@ -1,7 +1,8 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
     <!-- WEB HEAD -->
-	<title>LucasDaGamerHD.tv -CSGO, DayZ, ARK, And More</title>
+	<title>LucasDaGamerHD.tv -CSGO, DayZ, And More</title>
 	
 	<!-- THEME HEAD -->
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -19,7 +20,38 @@
 	<script src="js/jquery.flexslider.js" type="text/javascript"></script>
 	<script src="js/DD_belatedPNG-min.js" type="text/javascript"></script>
 	<script src="js/functions.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!-- VIDEO.JS HEAD -->
+	<link href="http://vjs.zencdn.net/5.8.0/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/5.8.0/video.js"></script>
+	
+	<!-- GOOGLE SIGN-IN HEAD -->
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="875623869607-hqd9eok3r385lrgvbvhoql1n416e9odn.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
+
+<!-- GOOGLE SIGN-IN SESSION SCRIPT -->
+<script>
+  function onSignIn(googleUser) {
+	// Useful data for your client-side scripts:
+	var profile = googleUser.getBasicProfile();
+
+	// The ID token you need to pass to your backend:
+	var id_token = googleUser.getAuthResponse().id_token;
+	console.log("ID Token: " + id_token);
+	
+	//document.getElementById('top-navigation').innerText = "Signed in as: " + profile.getName();
+  };
+  function signOut() {
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function () {
+	  console.log('User signed out.');
+	});
+	//document.getElementById('top-navigation').innerText = "";
+  }
+</script>
 
 <!-- BEGIN HTML BODY -->
 <body>
@@ -47,9 +79,9 @@
 			<div id="navigation">
 				<ul>
 					<li class="first"><a title="Home" href="#">Home</a></li>
-					<li><a title="About" href="#">Games</a></li>
-					<li><a title="Services" href="#">Videos</a></li>
-					<li><a title="Projects" href="#">Stream</a></li>
+					<li><a title="About" href="#">About </a></li>
+					<li><a title="Services" href="#">Services</a></li>
+					<li><a title="Projects" href="#">Projects</a></li>
 				</ul>
 				<div class="cl"></div>
 			</div>
@@ -71,6 +103,19 @@
 				</div>
 			</div>
 			<!-- END Slider -->
+			<!-- Video -->
+			<p style="text-align: center; font-weight: bold; color: red; font-size: 52px;"></br>OFFLINE</br></br></p>
+			<div id = "stream" style="display: table; margin: 0 auto;">
+				<video id="my_video" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="800" height="450" data-setup='{"loop": "true", "autoplay": true, "preload": "true"}'>
+					<source src="rtmp://lucasdagamerhd.tv/live/test" type='rtmp/mp4'>
+					<p class="vjs-no-js">
+					  To view this video please enable JavaScript, and consider upgrading to a web browser that
+					  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+					</p>
+				</video>
+			</div>
+			<!-- End Video -->
+			<div class="cl"></div></br>
 			<!-- Footer -->
 			<div id="footer">
 				<p class="copy">Copyright 2016<span>|</span>LucasDaGamerHD.tv - All Rights Reserved.     </p>
