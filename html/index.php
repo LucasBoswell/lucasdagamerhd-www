@@ -28,14 +28,7 @@
 		<!-- Shell -->
 		<div class="shell">
 			<!-- Top Nav -->
-			<p id="top-navigation">
-			<div style="width: 100%; display: table;">
-				<div style="display: table-row">
-					<div style="display: table-cell; float: right; margin-right: 70px;"><div class="g-signin2" data-width="100" data-height="24" data-onsuccess="onSignIn" data-theme="dark"></div></div>
-					<div style="display: table-cell;"><div style="float: right; margin-right: 20px;"><a href="" onclick="signOut();">Sign out</a></div></div>
-				</div>
-			</div>
-			</p>
+			<p id="top-navigation"></p>
 			<div class="cl"></div>
 			<!-- END Top Nav -->
 			<!-- Header -->

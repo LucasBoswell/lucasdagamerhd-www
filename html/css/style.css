@@ -23,7 +23,7 @@ textarea { overflow: auto; }
 
 #wrapper { background: url(images/wrapper.png) repeat-x 0 0; }
 
-.shell { padding: 9px 0 30px; width: 995px; margin: 0 auto; background: url(images/top-lights.png) no-repeat 0 0; }
+.shell { padding: 9px 0 30px; width: 855px; margin: 0 auto; background: url(images/top-lights.png) no-repeat 0 0; }
 
 .socials { display: inline; float: right; padding-right: 4px; }
 .socials a { display: block; float: left; padding-right: 9px; width: 22px; height: 22px; text-indent: -4000px; }
